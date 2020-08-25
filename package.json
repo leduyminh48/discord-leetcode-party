@@ -18,6 +18,7 @@
   "homepage": "https://github.com/leduyminh48/discord-leetcode-party#readme",
   "dependencies": {
     "discord.js": "^12.3.1",
+    "prettier": "^2.1.0",
     "request": "^2.88.2"
   }
 }
