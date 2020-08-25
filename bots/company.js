@@ -6,6 +6,11 @@ module.exports = function (message) {
         if (!company) {
             return;
         }
+
+        if (company.toLowerCase() === 'admin') {
+            message.reply('Haha, nice try!!!');
+            return;
+        }
         const guild = message.member.guild;
 
         const role = guild.roles.cache.find(
