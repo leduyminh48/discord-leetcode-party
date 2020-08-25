@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/leduyminh48/discord-leetcode-party/issues"
   },
-  "homepage": "https://github.com/leduyminh48/discord-leetcode-party#readme"
+  "homepage": "https://github.com/leduyminh48/discord-leetcode-party#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "request": "^2.88.2"
+  }
 }
