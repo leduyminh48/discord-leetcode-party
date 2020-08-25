@@ -1,0 +1,19 @@
+{
+  "name": "discord-leetcode-party",
+  "version": "1.0.0",
+  "description": "Bots for Leetcode Party's discord server",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leduyminh48/discord-leetcode-party.git"
+  },
+  "author": "Duy Minh Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leduyminh48/discord-leetcode-party/issues"
+  },
+  "homepage": "https://github.com/leduyminh48/discord-leetcode-party#readme"
+}
