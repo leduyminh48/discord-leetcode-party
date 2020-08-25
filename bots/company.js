@@ -11,7 +11,6 @@ module.exports = function (message) {
         const role = guild.roles.cache.find(
             (el) => el.name.toLowerCase() === company.toLowerCase()
         );
-        console.log(role);
 
         if (role) {
             message.member.roles.add(role).then(() => {
@@ -29,6 +28,7 @@ module.exports = function (message) {
             return message.guild.roles.fetch();
         }).then(roles => {
             const newRole = roles.cache.find(el => el.name = company);
+            console.log(roles.cache.map(el => el.name).join(', '));
             return message.member.roles.add(newRole).then(() => newRole);
         }).then(newRole => {
             message.reply(`'${newRole.name}' added as your company`);
