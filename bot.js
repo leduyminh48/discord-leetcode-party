@@ -7,12 +7,12 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
     if (message.content === 'ping') {
-        message.reply('pong');
         const guild = message.member.guild;
 
         guild.roles.cache.forEach((role) => {
-            message.reply(role.name);
+            console.log(role);
         });
+        message.reply('pong');
     }
 });
 
