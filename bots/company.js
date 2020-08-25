@@ -11,6 +11,7 @@ module.exports = function (message) {
         const role = guild.roles.cache.find(
             (el) => el.name.toLowerCase() === company.toLowerCase()
         );
+        console.log(role);
 
         if (role) {
             message.member.roles.add(role).then(() => {
