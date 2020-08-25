@@ -24,7 +24,7 @@ client.on('message', (message) => {
         );
 
         if (role) {
-            message.author.roles.add(role).then(() => {
+            message.member.roles.add(role).then(() => {
                 message.reply('Company added');
             });
             return;
@@ -39,7 +39,7 @@ client.on('message', (message) => {
             return message.guild.roles.fetch();
         }).then(roles => {
             roles.cache.find(el => el.name = company);
-            message.author.roles.add(role).then(() => {
+            message.member.roles.add(role).then(() => {
                 message.reply('Company added');
             });
         });
