@@ -29,6 +29,8 @@ module.exports = function (message) {
       )
       .setTimestamp();
 
+    message.channel.send(msg);
+
     return;
   }
 
