@@ -10,7 +10,7 @@ module.exports = function (message) {
 
   if (company === '--stats') {
     const roles = message.member.guild.roles;
-    const map = roles.reduce((acc, role) => {
+    const map = roles.cache.reduce((acc, role) => {
       acc[role.name] = role.members.size;
       return acc;
     }, {});
