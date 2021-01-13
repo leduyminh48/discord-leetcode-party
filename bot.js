@@ -1,19 +1,22 @@
 const Discord = require('discord.js');
-const companyBot = require('./bots/company')
-const client = new Discord.Client();
+const companyBot = require('./bots/company');
+const intents = new Discord.Intents([
+  Discord.Intents.NON_PRIVILEGED,
+  'GUILD_MEMBERS',
+]);
+const client = new Discord.Client({ ws: { intents } });
 
 client.on('ready', () => {
-    console.log('I am ready!');
+  console.log('I am ready!');
 });
 
 client.on('message', (message) => {
-    if (message.content === 'ping') {
-        message.reply('pong')
-    }
+  if (message.content === 'ping') {
+    message.reply('pong');
+  }
 
-    companyBot(message);
+  companyBot(message);
 });
-
 // THIS  MUST  BE  THIS  WAY
 
 client.login(process.env.BOT_TOKEN);

@@ -9,33 +9,40 @@ module.exports = function (message) {
   const company = spl && spl[1];
 
   if (company === '--stats') {
-    const roles = message.member.guild.roles;
-    const map = roles.cache.reduce((acc, role) => {
-      acc[role.name] = role.members.size;
-      return acc;
-    }, {});
+    Promise.all([message.guild.roles.fetch(), message.guild.members.fetch()])
+      .then(([roles]) => {
+        const map = roles.cache.reduce((acc, role) => {
+          acc[role.name] = role.members.size;
+          return acc;
+        }, {});
 
-    const msg = new Discord.MessageEmbed()
-      .setColor('#0099ff')
-      .setTitle('Roles Statistics')
-      .setDescription(
-        `
-          ${Object.keys(map)
-            .map((role) => {
-              return `${role}: ${map[role]}`;
-            })
-            .join('\n')}
-        `
-      )
-      .setTimestamp();
-
-    message.channel.send(msg);
+        sendMsg(message.channel, map);
+      })
+      .catch((err) => console.log(err));
 
     return;
   }
 
   addRole(message, company);
 };
+
+function sendMsg(channel, map) {
+  const msg = new Discord.MessageEmbed()
+    .setColor('#0099ff')
+    .setTitle('Roles Statistics')
+    .setDescription(
+      `
+        ${Object.keys(map)
+          .map((role) => {
+            return `${role}: ${map[role]}`;
+          })
+          .join('\n')}
+      `
+    )
+    .setTimestamp();
+
+  channel.send(msg);
+}
 
 function addRole(message, company) {
   if (!company) {
