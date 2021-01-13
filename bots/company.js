@@ -12,7 +12,9 @@ module.exports = function (message) {
     Promise.all([message.guild.roles.fetch(), message.guild.members.fetch()])
       .then(([roles]) => {
         const map = roles.cache.reduce((acc, role) => {
-          acc[role.name] = role.members.size;
+          if (role.members.size) {
+            acc[role.name] = role.members.size;
+          }
           return acc;
         }, {});
 
