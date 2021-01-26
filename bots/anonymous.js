@@ -16,7 +16,8 @@ class AnonymousBot {
 
     if(!cmdResult) {
       message.reply(`
-        To send a msg anonymously to <channel-name>, follow syntax !anon:<channel-name> <message>
+        To send a msg anonymously to <channel-name>, follow syntax !anon:<channel-name> <message>.
+        E.g: !anon:general Hi
       `);
       return;
     }
