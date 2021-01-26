@@ -22,7 +22,7 @@ function subscribe(cl) {
       message.reply('pong');
     }
 
-    if (message.channel.type === 'dm' && message.content.startsWith('!anon')) {
+    if (message.channel.type === 'dm') {
       anonBot.respond(message);
     }
 

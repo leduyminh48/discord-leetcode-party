@@ -12,6 +12,14 @@ class AnonymousBot {
     if (message.author.id === this._client.user.id) {
       return;
     }
+    const cmdResult = this._regExpCmd.exec(message.content);
+
+    if(!cmdResult) {
+      message.reply(`
+        To send a msg anonymously to <channel-name>, follow syntax !anon:<channel-name> <message>
+      `);
+      return;
+    }
     const userName = this._getUserName(message.author);
     const msg = new Discord.MessageEmbed()
       .setColor('#0099ff')
