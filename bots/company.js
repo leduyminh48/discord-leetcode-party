@@ -6,13 +6,13 @@ class CompanyBot {
       return;
     }
 
-    const spl = /\!company[\s]+([\s\w\W]+)/.exec(message);
+    const spl = /!company[\s]+([\s\w\W]+)/.exec(message);
     const company = spl && spl[1];
 
     if (['—stats', '--stats'].includes(company)) {
       this.fetchRoles(message.guild)
         .then((map) => this.sendRolesMsg(message.channel, map))
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
 
       return;
     }
@@ -29,7 +29,7 @@ class CompanyBot {
           }
           return acc;
         }, {});
-      }
+      },
     );
   }
 
@@ -44,7 +44,7 @@ class CompanyBot {
             return `${role}: ${map[role]}`;
           })
           .join('\n')}
-      `
+      `,
       )
       .setTimestamp();
 
@@ -63,7 +63,7 @@ class CompanyBot {
     const guild = message.member.guild;
 
     const role = guild.roles.cache.find(
-      (el) => el.name.toLowerCase() === company.toLowerCase()
+      (el) => el.name.toLowerCase() === company.toLowerCase(),
     );
 
     if (role) {
